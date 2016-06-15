@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 extract($_POST);
 if(isset($_POST['langue'])){
   $langue = $_POST['langue'];
