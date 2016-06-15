@@ -23,6 +23,17 @@
      ?>
       </tr>
     </thead>
+     <?php
+     foreach($res as $value){
+       echo "<tr>";
+       echo "<td>".$value['nom']."</td>";
+       $distance = mysqli_query($link,"select * from distance d, capitale c where c.id =".$value['id']." and c.id = d.id1");
+       foreach($distance as $unite){
+         echo "<td>".$unite['distance']."</td>";
+       }
+       echo "</tr>";  
+     }
+     ?>
   </table> 
 </body>
 </html>
