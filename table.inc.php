@@ -9,8 +9,20 @@ class table {
     
   }
   
+  function table($arg){
+    $this::__construct();
+    if($arg != null){
+    $i = 0;
+    foreach($arg as $value){
+      $this->tab[$i] = $value;
+      $i++;
+    }
+  }
+  }
+  
   public function __toString(){
     echo "<table border=1><thead><tr>";
+    if(sizeof($this->tab)>0){
     foreach($this->tab[0] as $value){
       echo "<th>".$value."</th>";
     }
@@ -23,6 +35,10 @@ class table {
       echo"</tr>";
     }
     return "";
+    }
+    else{
+      return "empty";
+    }
   }
   
   public function set_header($arg){
